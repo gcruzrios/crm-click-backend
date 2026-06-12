@@ -1,0 +1,375 @@
+2026-06-12T02:18:09.496249+00:00 app[web.1]:   File "uvloop/loop.pyx", line 2043, in create_connection
+2026-06-12T02:18:09.496249+00:00 app[web.1]:     raise exceptions[0]
+2026-06-12T02:18:09.496250+00:00 app[web.1]:   File "uvloop/loop.pyx", line 2019, in uvloop.loop.Loop.create_connection
+2026-06-12T02:18:09.496250+00:00 app[web.1]:     tr.connect(rai_iter.ai_addr)
+2026-06-12T02:18:09.496251+00:00 app[web.1]:   File "uvloop/handles/tcp.pyx", line 182, in uvloop.loop.TCPTransport.connect
+2026-06-12T02:18:09.496251+00:00 app[web.1]:     req.connect(addr)
+2026-06-12T02:18:09.496251+00:00 app[web.1]:   File "uvloop/handles/tcp.pyx", line 204, in uvloop.loop._TCPConnectRequest.connect
+2026-06-12T02:18:09.496251+00:00 app[web.1]:     raise exc
+2026-06-12T02:18:09.496252+00:00 app[web.1]: OSError: [Errno 101] Network is unreachable
+2026-06-12T02:18:09.496604+00:00 heroku[router]: at=info method=POST path="/api/v1/auth/login" host=crm-click-backend-34d4837c7458.herokuapp.com request_id=5b1e8d08-7b6e-6907-f41f-c7851f78a4c7 fwd="186.151.100.9" dyno=web.1 connect=1ms service=12ms status=500 bytes=21 protocol=http1.1 tls=false
+2026-06-12T02:25:26.289351+00:00 app[api]: Log session created by user gcruzrios@hotmail.com
+2026-06-12T02:28:28.725927+00:00 heroku[router]: at=info method=OPTIONS path="/api/v1/auth/login" host=crm-click-backend-34d4837c7458.herokuapp.com request_id=30759ee0-cbd8-ad78-3ed3-80c2f2f1ddcb fwd="186.151.100.9" dyno=web.1 connect=1ms service=1ms status=200 bytes=2 protocol=http1.1 tls=false
+2026-06-12T02:28:28.819609+00:00 heroku[router]: at=info method=POST path="/api/v1/auth/login" host=crm-click-backend-34d4837c7458.herokuapp.com request_id=4a6ef3a7-96f9-ce90-585d-101e758c5af4 fwd="186.151.100.9" dyno=web.1 connect=0ms service=12ms status=500 bytes=21 protocol=http1.1 tls=false
+2026-06-12T02:28:28.725387+00:00 app[web.1]: 186.151.100.9:0 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200
+2026-06-12T02:28:28.814149+00:00 app[web.1]: 186.151.100.9:0 - "POST /api/v1/auth/login HTTP/1.1" 500
+2026-06-12T02:28:28.819108+00:00 app[web.1]: [2026-06-12 02:28:28 +0000] [9] [ERROR] Exception in ASGI application
+2026-06-12T02:28:28.819110+00:00 app[web.1]: Traceback (most recent call last):
+2026-06-12T02:28:28.819110+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 421, in run_asgi
+2026-06-12T02:28:28.819111+00:00 app[web.1]:     result = await app(  # type: ignore[func-returns-value]
+2026-06-12T02:28:28.819111+00:00 app[web.1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819111+00:00 app[web.1]:         self.scope, self.receive, self.send
+2026-06-12T02:28:28.819111+00:00 app[web.1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819113+00:00 app[web.1]:     )
+2026-06-12T02:28:28.819113+00:00 app[web.1]:     ^
+2026-06-12T02:28:28.819113+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 62, in __call__
+2026-06-12T02:28:28.819113+00:00 app[web.1]:     return await self.app(scope, receive, send)
+2026-06-12T02:28:28.819113+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819114+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/applications.py", line 1159, in __call__
+2026-06-12T02:28:28.819115+00:00 app[web.1]:     await super().__call__(scope, receive, send)
+2026-06-12T02:28:28.819115+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/applications.py", line 90, in __call__
+2026-06-12T02:28:28.819115+00:00 app[web.1]:     await self.middleware_stack(scope, receive, send)
+2026-06-12T02:28:28.819115+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+2026-06-12T02:28:28.819115+00:00 app[web.1]:     raise exc
+2026-06-12T02:28:28.819116+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+2026-06-12T02:28:28.819116+00:00 app[web.1]:     await self.app(scope, receive, _send)
+2026-06-12T02:28:28.819116+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/cors.py", line 96, in __call__
+2026-06-12T02:28:28.819116+00:00 app[web.1]:     await self.simple_response(scope, receive, send, request_headers=headers)
+2026-06-12T02:28:28.819116+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+2026-06-12T02:28:28.819117+00:00 app[web.1]:     await self.app(scope, receive, send)
+2026-06-12T02:28:28.819117+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+2026-06-12T02:28:28.819117+00:00 app[web.1]:     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+2026-06-12T02:28:28.819118+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+2026-06-12T02:28:28.819118+00:00 app[web.1]:     raise exc
+2026-06-12T02:28:28.819118+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+2026-06-12T02:28:28.819118+00:00 app[web.1]:     await app(scope, receive, sender)
+2026-06-12T02:28:28.819118+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+2026-06-12T02:28:28.819118+00:00 app[web.1]:     await self.app(scope, receive, send)
+2026-06-12T02:28:28.819119+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/routing.py", line 660, in __call__
+2026-06-12T02:28:28.819119+00:00 app[web.1]:     await self.middleware_stack(scope, receive, send)
+2026-06-12T02:28:28.819119+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/routing.py", line 680, in app
+2026-06-12T02:28:28.819119+00:00 app[web.1]:     await route.handle(scope, receive, send)
+2026-06-12T02:28:28.819119+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/routing.py", line 276, in handle
+2026-06-12T02:28:28.819120+00:00 app[web.1]:     await self.app(scope, receive, send)
+2026-06-12T02:28:28.819120+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/routing.py", line 134, in app
+2026-06-12T02:28:28.819121+00:00 app[web.1]:     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+2026-06-12T02:28:28.819121+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+2026-06-12T02:28:28.819121+00:00 app[web.1]:     raise exc
+2026-06-12T02:28:28.819129+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+2026-06-12T02:28:28.819129+00:00 app[web.1]:     await app(scope, receive, sender)
+2026-06-12T02:28:28.819130+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/routing.py", line 120, in app
+2026-06-12T02:28:28.819131+00:00 app[web.1]:     response = await f(request)
+2026-06-12T02:28:28.819131+00:00 app[web.1]:                ^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819131+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/routing.py", line 674, in app
+2026-06-12T02:28:28.819131+00:00 app[web.1]:     raw_response = await run_endpoint_function(
+2026-06-12T02:28:28.819131+00:00 app[web.1]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819132+00:00 app[web.1]:     ...<3 lines>...
+2026-06-12T02:28:28.819133+00:00 app[web.1]:     )
+2026-06-12T02:28:28.819133+00:00 app[web.1]:     ^
+2026-06-12T02:28:28.819133+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+2026-06-12T02:28:28.819133+00:00 app[web.1]:     return await dependant.call(**values)
+2026-06-12T02:28:28.819133+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819133+00:00 app[web.1]:   File "/app/app/api/v1/auth.py", line 58, in login
+2026-06-12T02:28:28.819134+00:00 app[web.1]:     user = await authenticate_user(db, email, password)
+2026-06-12T02:28:28.819134+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819134+00:00 app[web.1]:   File "/app/app/services/auth_service.py", line 11, in authenticate_user
+2026-06-12T02:28:28.819134+00:00 app[web.1]:     result = await db.execute(select(User).where(User.email == email))
+2026-06-12T02:28:28.819134+00:00 app[web.1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819137+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/ext/asyncio/session.py", line 448, in execute
+2026-06-12T02:28:28.819137+00:00 app[web.1]:     result = await greenlet_spawn(
+2026-06-12T02:28:28.819137+00:00 app[web.1]:              ^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819138+00:00 app[web.1]:     ...<6 lines>...
+2026-06-12T02:28:28.819138+00:00 app[web.1]:     )
+2026-06-12T02:28:28.819138+00:00 app[web.1]:     ^
+2026-06-12T02:28:28.819138+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+2026-06-12T02:28:28.819138+00:00 app[web.1]:     result = context.throw(*sys.exc_info())
+2026-06-12T02:28:28.819138+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2372, in execute
+2026-06-12T02:28:28.819138+00:00 app[web.1]:     return self._execute_internal(
+2026-06-12T02:28:28.819139+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~^
+2026-06-12T02:28:28.819139+00:00 app[web.1]:         statement,
+2026-06-12T02:28:28.819139+00:00 app[web.1]:         ^^^^^^^^^^
+2026-06-12T02:28:28.819139+00:00 app[web.1]:     ...<4 lines>...
+2026-06-12T02:28:28.819139+00:00 app[web.1]:         _add_event=_add_event,
+2026-06-12T02:28:28.819139+00:00 app[web.1]:         ^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819140+00:00 app[web.1]:     )
+2026-06-12T02:28:28.819140+00:00 app[web.1]:     ^
+2026-06-12T02:28:28.819140+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2260, in _execute_internal
+2026-06-12T02:28:28.819140+00:00 app[web.1]:     conn = self._connection_for_bind(bind)
+2026-06-12T02:28:28.819140+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2112, in _connection_for_bind
+2026-06-12T02:28:28.819141+00:00 app[web.1]:     return trans._connection_for_bind(engine, execution_options)
+2026-06-12T02:28:28.819141+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819141+00:00 app[web.1]:   File "<string>", line 2, in _connection_for_bind
+2026-06-12T02:28:28.819141+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+2026-06-12T02:28:28.819141+00:00 app[web.1]:     ret_value = fn(self, *arg, **kw)
+2026-06-12T02:28:28.819142+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 1191, in _connection_for_bind
+2026-06-12T02:28:28.819142+00:00 app[web.1]:     conn = bind.connect()
+2026-06-12T02:28:28.819142+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3295, in connect
+2026-06-12T02:28:28.819142+00:00 app[web.1]:     return self._connection_cls(self)
+2026-06-12T02:28:28.819143+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-06-12T02:28:28.819143+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 144, in __init__
+2026-06-12T02:28:28.819143+00:00 app[web.1]:     self._dbapi_connection = engine.raw_connection()
+2026-06-12T02:28:28.819143+00:00 app[web.1]:                              ~~~~~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:28:28.819143+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3319, in raw_connection
+2026-06-12T02:28:28.819144+00:00 app[web.1]:     return self.pool.connect()
+2026-06-12T02:28:28.819144+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:28:28.819144+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 448, in connect
+2026-06-12T02:28:28.819144+00:00 app[web.1]:     return _ConnectionFairy._checkout(self)
+2026-06-12T02:28:28.819144+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-06-12T02:28:28.819145+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 1272, in _checkout
+2026-06-12T02:28:28.819145+00:00 app[web.1]:     fairy = _ConnectionRecord.checkout(pool)
+2026-06-12T02:28:28.819145+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+2026-06-12T02:28:28.819145+00:00 app[web.1]:     rec = pool._do_get()
+2026-06-12T02:28:28.819145+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 178, in _do_get
+2026-06-12T02:28:28.819145+00:00 app[web.1]:     with util.safe_reraise():
+2026-06-12T02:28:28.819155+00:00 app[web.1]:          ~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:28:28.819155+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+2026-06-12T02:28:28.819156+00:00 app[web.1]:     raise exc_value.with_traceback(exc_tb)
+2026-06-12T02:28:28.819156+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 176, in _do_get
+2026-06-12T02:28:28.819156+00:00 app[web.1]:     return self._create_connection()
+2026-06-12T02:28:28.819156+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:28:28.819156+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 389, in _create_connection
+2026-06-12T02:28:28.819156+00:00 app[web.1]:     return _ConnectionRecord(self)
+2026-06-12T02:28:28.819157+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+2026-06-12T02:28:28.819157+00:00 app[web.1]:     self.__connect()
+2026-06-12T02:28:28.819157+00:00 app[web.1]:     ~~~~~~~~~~~~~~^^
+2026-06-12T02:28:28.819157+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+2026-06-12T02:28:28.819157+00:00 app[web.1]:     with util.safe_reraise():
+2026-06-12T02:28:28.819158+00:00 app[web.1]:          ~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:28:28.819158+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+2026-06-12T02:28:28.819158+00:00 app[web.1]:     raise exc_value.with_traceback(exc_tb)
+2026-06-12T02:28:28.819158+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+2026-06-12T02:28:28.819158+00:00 app[web.1]:     self.dbapi_connection = connection = pool._invoke_creator(self)
+2026-06-12T02:28:28.819159+00:00 app[web.1]:                                          ~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-06-12T02:28:28.819159+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/create.py", line 667, in connect
+2026-06-12T02:28:28.819159+00:00 app[web.1]:     return dialect.connect(*cargs_tup, **cparams)
+2026-06-12T02:28:28.819159+00:00 app[web.1]:            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819162+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/default.py", line 630, in connect
+2026-06-12T02:28:28.819162+00:00 app[web.1]:     return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+2026-06-12T02:28:28.819163+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819163+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 955, in connect
+2026-06-12T02:28:28.819163+00:00 app[web.1]:     await_only(creator_fn(*arg, **kw)),
+2026-06-12T02:28:28.819163+00:00 app[web.1]:     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819163+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+2026-06-12T02:28:28.819163+00:00 app[web.1]:     return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+2026-06-12T02:28:28.819164+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+2026-06-12T02:28:28.819164+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+2026-06-12T02:28:28.819164+00:00 app[web.1]:     value = await result
+2026-06-12T02:28:28.819164+00:00 app[web.1]:             ^^^^^^^^^^^^
+2026-06-12T02:28:28.819165+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connection.py", line 2443, in connect
+2026-06-12T02:28:28.819165+00:00 app[web.1]:     return await connect_utils._connect(
+2026-06-12T02:28:28.819165+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819165+00:00 app[web.1]:     ...<22 lines>...
+2026-06-12T02:28:28.819165+00:00 app[web.1]:     )
+2026-06-12T02:28:28.819165+00:00 app[web.1]:     ^
+2026-06-12T02:28:28.819166+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1249, in _connect
+2026-06-12T02:28:28.819166+00:00 app[web.1]:     raise last_error or exceptions.TargetServerAttributeNotMatched(
+2026-06-12T02:28:28.819166+00:00 app[web.1]:     ...<2 lines>...
+2026-06-12T02:28:28.819166+00:00 app[web.1]:     )
+2026-06-12T02:28:28.819166+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1218, in _connect
+2026-06-12T02:28:28.819166+00:00 app[web.1]:     conn = await _connect_addr(
+2026-06-12T02:28:28.819167+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819167+00:00 app[web.1]:     ...<6 lines>...
+2026-06-12T02:28:28.819167+00:00 app[web.1]:     )
+2026-06-12T02:28:28.819167+00:00 app[web.1]:     ^
+2026-06-12T02:28:28.819167+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1054, in _connect_addr
+2026-06-12T02:28:28.819167+00:00 app[web.1]:     return await __connect_addr(params, True, *args)
+2026-06-12T02:28:28.819168+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819168+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1099, in __connect_addr
+2026-06-12T02:28:28.819168+00:00 app[web.1]:     tr, pr = await connector
+2026-06-12T02:28:28.819168+00:00 app[web.1]:              ^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819168+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 969, in _create_ssl_connection
+2026-06-12T02:28:28.819169+00:00 app[web.1]:     tr, pr = await loop.create_connection(
+2026-06-12T02:28:28.819169+00:00 app[web.1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:28:28.819169+00:00 app[web.1]:     ...<2 lines>...
+2026-06-12T02:28:28.819169+00:00 app[web.1]:         host, port)
+2026-06-12T02:28:28.819169+00:00 app[web.1]:         ^^^^^^^^^^^
+2026-06-12T02:28:28.819170+00:00 app[web.1]:   File "uvloop/loop.pyx", line 2043, in create_connection
+2026-06-12T02:28:28.819170+00:00 app[web.1]:     raise exceptions[0]
+2026-06-12T02:28:28.819170+00:00 app[web.1]:   File "uvloop/loop.pyx", line 2019, in uvloop.loop.Loop.create_connection
+2026-06-12T02:28:28.819170+00:00 app[web.1]:     tr.connect(rai_iter.ai_addr)
+2026-06-12T02:28:28.819170+00:00 app[web.1]:   File "uvloop/handles/tcp.pyx", line 182, in uvloop.loop.TCPTransport.connect
+2026-06-12T02:28:28.819171+00:00 app[web.1]:     req.connect(addr)
+2026-06-12T02:28:28.819171+00:00 app[web.1]:   File "uvloop/handles/tcp.pyx", line 204, in uvloop.loop._TCPConnectRequest.connect
+2026-06-12T02:28:28.819171+00:00 app[web.1]:     raise exc
+2026-06-12T02:28:28.819171+00:00 app[web.1]: OSError: [Errno 101] Network is unreachable
+2026-06-12T02:29:00.886386+00:00 heroku[router]: at=info method=POST path="/api/v1/auth/login" host=crm-click-backend-34d4837c7458.herokuapp.com request_id=6f1a3f03-af55-c018-9883-639c0718b621 fwd="186.151.100.9" dyno=web.1 connect=1ms service=11ms status=500 bytes=21 protocol=http1.1 tls=false
+2026-06-12T02:29:00.880917+00:00 app[web.1]: 186.151.100.9:0 - "POST /api/v1/auth/login HTTP/1.1" 500
+2026-06-12T02:29:00.885938+00:00 app[web.1]: [2026-06-12 02:29:00 +0000] [9] [ERROR] Exception in ASGI application
+2026-06-12T02:29:00.885939+00:00 app[web.1]: Traceback (most recent call last):
+2026-06-12T02:29:00.885940+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 421, in run_asgi
+2026-06-12T02:29:00.885940+00:00 app[web.1]:     result = await app(  # type: ignore[func-returns-value]
+2026-06-12T02:29:00.885940+00:00 app[web.1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885941+00:00 app[web.1]:         self.scope, self.receive, self.send
+2026-06-12T02:29:00.885941+00:00 app[web.1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885941+00:00 app[web.1]:     )
+2026-06-12T02:29:00.885941+00:00 app[web.1]:     ^
+2026-06-12T02:29:00.885941+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 62, in __call__
+2026-06-12T02:29:00.885942+00:00 app[web.1]:     return await self.app(scope, receive, send)
+2026-06-12T02:29:00.885942+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885942+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/applications.py", line 1159, in __call__
+2026-06-12T02:29:00.885943+00:00 app[web.1]:     await super().__call__(scope, receive, send)
+2026-06-12T02:29:00.885943+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/applications.py", line 90, in __call__
+2026-06-12T02:29:00.885943+00:00 app[web.1]:     await self.middleware_stack(scope, receive, send)
+2026-06-12T02:29:00.885943+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+2026-06-12T02:29:00.885944+00:00 app[web.1]:     raise exc
+2026-06-12T02:29:00.885944+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+2026-06-12T02:29:00.885945+00:00 app[web.1]:     await self.app(scope, receive, _send)
+2026-06-12T02:29:00.885945+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/cors.py", line 96, in __call__
+2026-06-12T02:29:00.885945+00:00 app[web.1]:     await self.simple_response(scope, receive, send, request_headers=headers)
+2026-06-12T02:29:00.885945+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/cors.py", line 154, in simple_response
+2026-06-12T02:29:00.885945+00:00 app[web.1]:     await self.app(scope, receive, send)
+2026-06-12T02:29:00.885946+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+2026-06-12T02:29:00.885946+00:00 app[web.1]:     await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+2026-06-12T02:29:00.885946+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+2026-06-12T02:29:00.885946+00:00 app[web.1]:     raise exc
+2026-06-12T02:29:00.885946+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+2026-06-12T02:29:00.885947+00:00 app[web.1]:     await app(scope, receive, sender)
+2026-06-12T02:29:00.885947+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+2026-06-12T02:29:00.885947+00:00 app[web.1]:     await self.app(scope, receive, send)
+2026-06-12T02:29:00.885947+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/routing.py", line 660, in __call__
+2026-06-12T02:29:00.885947+00:00 app[web.1]:     await self.middleware_stack(scope, receive, send)
+2026-06-12T02:29:00.885953+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/routing.py", line 680, in app
+2026-06-12T02:29:00.885953+00:00 app[web.1]:     await route.handle(scope, receive, send)
+2026-06-12T02:29:00.885953+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/routing.py", line 276, in handle
+2026-06-12T02:29:00.885953+00:00 app[web.1]:     await self.app(scope, receive, send)
+2026-06-12T02:29:00.885954+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/routing.py", line 134, in app
+2026-06-12T02:29:00.885954+00:00 app[web.1]:     await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+2026-06-12T02:29:00.885955+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+2026-06-12T02:29:00.885955+00:00 app[web.1]:     raise exc
+2026-06-12T02:29:00.885955+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+2026-06-12T02:29:00.885955+00:00 app[web.1]:     await app(scope, receive, sender)
+2026-06-12T02:29:00.885955+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/routing.py", line 120, in app
+2026-06-12T02:29:00.885956+00:00 app[web.1]:     response = await f(request)
+2026-06-12T02:29:00.885956+00:00 app[web.1]:                ^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885956+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/routing.py", line 674, in app
+2026-06-12T02:29:00.885956+00:00 app[web.1]:     raw_response = await run_endpoint_function(
+2026-06-12T02:29:00.885957+00:00 app[web.1]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885957+00:00 app[web.1]:     ...<3 lines>...
+2026-06-12T02:29:00.885957+00:00 app[web.1]:     )
+2026-06-12T02:29:00.885958+00:00 app[web.1]:     ^
+2026-06-12T02:29:00.885958+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/fastapi/routing.py", line 328, in run_endpoint_function
+2026-06-12T02:29:00.885958+00:00 app[web.1]:     return await dependant.call(**values)
+2026-06-12T02:29:00.885958+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885958+00:00 app[web.1]:   File "/app/app/api/v1/auth.py", line 58, in login
+2026-06-12T02:29:00.885958+00:00 app[web.1]:     user = await authenticate_user(db, email, password)
+2026-06-12T02:29:00.885959+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885959+00:00 app[web.1]:   File "/app/app/services/auth_service.py", line 11, in authenticate_user
+2026-06-12T02:29:00.885960+00:00 app[web.1]:     result = await db.execute(select(User).where(User.email == email))
+2026-06-12T02:29:00.885960+00:00 app[web.1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885962+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/ext/asyncio/session.py", line 448, in execute
+2026-06-12T02:29:00.885962+00:00 app[web.1]:     result = await greenlet_spawn(
+2026-06-12T02:29:00.885962+00:00 app[web.1]:              ^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885962+00:00 app[web.1]:     ...<6 lines>...
+2026-06-12T02:29:00.885963+00:00 app[web.1]:     )
+2026-06-12T02:29:00.885963+00:00 app[web.1]:     ^
+2026-06-12T02:29:00.885963+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 201, in greenlet_spawn
+2026-06-12T02:29:00.885963+00:00 app[web.1]:     result = context.throw(*sys.exc_info())
+2026-06-12T02:29:00.885963+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2372, in execute
+2026-06-12T02:29:00.885964+00:00 app[web.1]:     return self._execute_internal(
+2026-06-12T02:29:00.885964+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~^
+2026-06-12T02:29:00.885964+00:00 app[web.1]:         statement,
+2026-06-12T02:29:00.885964+00:00 app[web.1]:         ^^^^^^^^^^
+2026-06-12T02:29:00.885964+00:00 app[web.1]:     ...<4 lines>...
+2026-06-12T02:29:00.885964+00:00 app[web.1]:         _add_event=_add_event,
+2026-06-12T02:29:00.885965+00:00 app[web.1]:         ^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885965+00:00 app[web.1]:     )
+2026-06-12T02:29:00.885965+00:00 app[web.1]:     ^
+2026-06-12T02:29:00.885965+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2260, in _execute_internal
+2026-06-12T02:29:00.885965+00:00 app[web.1]:     conn = self._connection_for_bind(bind)
+2026-06-12T02:29:00.885966+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 2112, in _connection_for_bind
+2026-06-12T02:29:00.885977+00:00 app[web.1]:     return trans._connection_for_bind(engine, execution_options)
+2026-06-12T02:29:00.885977+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.885977+00:00 app[web.1]:   File "<string>", line 2, in _connection_for_bind
+2026-06-12T02:29:00.885978+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+2026-06-12T02:29:00.885978+00:00 app[web.1]:     ret_value = fn(self, *arg, **kw)
+2026-06-12T02:29:00.885978+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/orm/session.py", line 1191, in _connection_for_bind
+2026-06-12T02:29:00.885979+00:00 app[web.1]:     conn = bind.connect()
+2026-06-12T02:29:00.885979+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3295, in connect
+2026-06-12T02:29:00.885979+00:00 app[web.1]:     return self._connection_cls(self)
+2026-06-12T02:29:00.885980+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-06-12T02:29:00.885980+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 144, in __init__
+2026-06-12T02:29:00.885980+00:00 app[web.1]:     self._dbapi_connection = engine.raw_connection()
+2026-06-12T02:29:00.885980+00:00 app[web.1]:                              ~~~~~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:29:00.885981+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3319, in raw_connection
+2026-06-12T02:29:00.885981+00:00 app[web.1]:     return self.pool.connect()
+2026-06-12T02:29:00.885981+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:29:00.885982+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 448, in connect
+2026-06-12T02:29:00.885982+00:00 app[web.1]:     return _ConnectionFairy._checkout(self)
+2026-06-12T02:29:00.885982+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-06-12T02:29:00.885992+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 1272, in _checkout
+2026-06-12T02:29:00.885992+00:00 app[web.1]:     fairy = _ConnectionRecord.checkout(pool)
+2026-06-12T02:29:00.885992+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+2026-06-12T02:29:00.885992+00:00 app[web.1]:     rec = pool._do_get()
+2026-06-12T02:29:00.885992+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 178, in _do_get
+2026-06-12T02:29:00.885993+00:00 app[web.1]:     with util.safe_reraise():
+2026-06-12T02:29:00.885993+00:00 app[web.1]:          ~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:29:00.885993+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+2026-06-12T02:29:00.885993+00:00 app[web.1]:     raise exc_value.with_traceback(exc_tb)
+2026-06-12T02:29:00.885993+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 176, in _do_get
+2026-06-12T02:29:00.885993+00:00 app[web.1]:     return self._create_connection()
+2026-06-12T02:29:00.885993+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:29:00.885994+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 389, in _create_connection
+2026-06-12T02:29:00.885994+00:00 app[web.1]:     return _ConnectionRecord(self)
+2026-06-12T02:29:00.885994+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+2026-06-12T02:29:00.885994+00:00 app[web.1]:     self.__connect()
+2026-06-12T02:29:00.885994+00:00 app[web.1]:     ~~~~~~~~~~~~~~^^
+2026-06-12T02:29:00.885994+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+2026-06-12T02:29:00.885995+00:00 app[web.1]:     with util.safe_reraise():
+2026-06-12T02:29:00.885995+00:00 app[web.1]:          ~~~~~~~~~~~~~~~~~^^
+2026-06-12T02:29:00.885995+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+2026-06-12T02:29:00.885995+00:00 app[web.1]:     raise exc_value.with_traceback(exc_tb)
+2026-06-12T02:29:00.885995+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+2026-06-12T02:29:00.885996+00:00 app[web.1]:     self.dbapi_connection = connection = pool._invoke_creator(self)
+2026-06-12T02:29:00.885996+00:00 app[web.1]:                                          ~~~~~~~~~~~~~~~~~~~~^^^^^^
+2026-06-12T02:29:00.885996+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/create.py", line 667, in connect
+2026-06-12T02:29:00.885996+00:00 app[web.1]:     return dialect.connect(*cargs_tup, **cparams)
+2026-06-12T02:29:00.885996+00:00 app[web.1]:            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.886009+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/engine/default.py", line 630, in connect
+2026-06-12T02:29:00.886009+00:00 app[web.1]:     return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+2026-06-12T02:29:00.886010+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.886010+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 955, in connect
+2026-06-12T02:29:00.886011+00:00 app[web.1]:     await_only(creator_fn(*arg, **kw)),
+2026-06-12T02:29:00.886011+00:00 app[web.1]:     ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.886011+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 132, in await_only
+2026-06-12T02:29:00.886011+00:00 app[web.1]:     return current.parent.switch(awaitable)  # type: ignore[no-any-return,attr-defined] # noqa: E501
+2026-06-12T02:29:00.886011+00:00 app[web.1]:            ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+2026-06-12T02:29:00.886011+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 196, in greenlet_spawn
+2026-06-12T02:29:00.886011+00:00 app[web.1]:     value = await result
+2026-06-12T02:29:00.886012+00:00 app[web.1]:             ^^^^^^^^^^^^
+2026-06-12T02:29:00.886012+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connection.py", line 2443, in connect
+2026-06-12T02:29:00.886012+00:00 app[web.1]:     return await connect_utils._connect(
+2026-06-12T02:29:00.886012+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.886012+00:00 app[web.1]:     ...<22 lines>...
+2026-06-12T02:29:00.886013+00:00 app[web.1]:     )
+2026-06-12T02:29:00.886013+00:00 app[web.1]:     ^
+2026-06-12T02:29:00.886013+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1249, in _connect
+2026-06-12T02:29:00.886013+00:00 app[web.1]:     raise last_error or exceptions.TargetServerAttributeNotMatched(
+2026-06-12T02:29:00.886013+00:00 app[web.1]:     ...<2 lines>...
+2026-06-12T02:29:00.886014+00:00 app[web.1]:     )
+2026-06-12T02:29:00.886014+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1218, in _connect
+2026-06-12T02:29:00.886014+00:00 app[web.1]:     conn = await _connect_addr(
+2026-06-12T02:29:00.886014+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.886014+00:00 app[web.1]:     ...<6 lines>...
+2026-06-12T02:29:00.886015+00:00 app[web.1]:     )
+2026-06-12T02:29:00.886015+00:00 app[web.1]:     ^
+2026-06-12T02:29:00.886015+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1054, in _connect_addr
+2026-06-12T02:29:00.886015+00:00 app[web.1]:     return await __connect_addr(params, True, *args)
+2026-06-12T02:29:00.886015+00:00 app[web.1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.886015+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 1099, in __connect_addr
+2026-06-12T02:29:00.886016+00:00 app[web.1]:     tr, pr = await connector
+2026-06-12T02:29:00.886016+00:00 app[web.1]:              ^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.886016+00:00 app[web.1]:   File "/app/.heroku/python/lib/python3.14/site-packages/asyncpg/connect_utils.py", line 969, in _create_ssl_connection
+2026-06-12T02:29:00.886016+00:00 app[web.1]:     tr, pr = await loop.create_connection(
+2026-06-12T02:29:00.886016+00:00 app[web.1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-06-12T02:29:00.886017+00:00 app[web.1]:     ...<2 lines>...
+2026-06-12T02:29:00.886017+00:00 app[web.1]:         host, port)
+2026-06-12T02:29:00.886017+00:00 app[web.1]:         ^^^^^^^^^^^
+2026-06-12T02:29:00.886017+00:00 app[web.1]:   File "uvloop/loop.pyx", line 2043, in create_connection
+2026-06-12T02:29:00.886017+00:00 app[web.1]:     raise exceptions[0]
+2026-06-12T02:29:00.886018+00:00 app[web.1]:   File "uvloop/loop.pyx", line 2019, in uvloop.loop.Loop.create_connection
+2026-06-12T02:29:00.886018+00:00 app[web.1]:     tr.connect(rai_iter.ai_addr)
+2026-06-12T02:29:00.886018+00:00 app[web.1]:   File "uvloop/handles/tcp.pyx", line 182, in uvloop.loop.TCPTransport.connect
+2026-06-12T02:29:00.886019+00:00 app[web.1]:     req.connect(addr)
+2026-06-12T02:29:00.886019+00:00 app[web.1]:   File "uvloop/handles/tcp.pyx", line 204, in uvloop.loop._TCPConnectRequest.connect
+2026-06-12T02:29:00.886019+00:00 app[web.1]:     raise exc
+2026-06-12T02:29:00.886019+00:00 app[web.1]: OSError: [Errno 101] Network is unreachable
