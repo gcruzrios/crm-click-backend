@@ -1,7 +1,7 @@
+import json as _json
 from typing import Annotated
 
 from fastapi import APIRouter, Depends, HTTPException, Request, status
-from fastapi.security import OAuth2PasswordRequestForm
 from pydantic import BaseModel
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -28,20 +28,32 @@ async def login(
     request: Request,
     db: Annotated[AsyncSession, Depends(get_db)],
 ):
-    content_type = request.headers.get("content-type", "")
+    body_bytes = await request.body()
+    email: str | None = None
+    password: str | None = None
 
-    if "application/json" in content_type:
-        body = await request.json()
-        email = body.get("email") or body.get("username")
-        password = body.get("password")
-        if not email or not password:
-            raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="email and password are required")
-    else:
-        form = await request.form()
-        email = form.get("username") or form.get("email")
-        password = form.get("password")
-        if not email or not password:
-            raise HTTPException(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="username and password are required")
+    # Try JSON first — works with or without Content-Type: application/json
+    try:
+        parsed = _json.loads(body_bytes)
+        email = parsed.get("email") or parsed.get("username")
+        password = parsed.get("password")
+    except Exception:
+        pass
+
+    # Fall back to URL-encoded form data (OAuth2PasswordRequestForm, HTML forms)
+    if not email or not password:
+        try:
+            form = await request.form()
+            email = form.get("username") or form.get("email")
+            password = form.get("password")
+        except Exception:
+            pass
+
+    if not email or not password:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="email and password are required",
+        )
 
     user = await authenticate_user(db, email, password)
     tokens = issue_tokens(user.id)
